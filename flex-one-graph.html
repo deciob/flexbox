@@ -1,0 +1,76 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="style-one-graph.css">
+  <link rel="stylesheet" href="charts.css">
+  <script src="nc/d3.js"></script>
+</head>
+
+<body>
+
+<div class="main-container">
+
+  <div class="header"></div>
+  <div class="row">
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+  </div>
+  <div class="row">
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+  </div>
+
+</div>
+
+<script src="nc/nightcharts.js"></script>
+
+<script>
+
+  var dataset = [ 
+    [['a', 10], ['b', 5]],
+    [['a', 8], ['b', 5]],
+    [['a', 2], ['b', 7]],
+  ];
+
+  var barCharts = [];
+  var panels = d3.selectAll('.panel');
+
+  panels.datum(dataset).each(function(d, i) {
+    var barChart = d3.nightcharts.bar();
+    var container = d3.select(this);
+    barChart.useViewBox(false);
+    barChart.width(this.clientWidth);
+    barChart.height(this.clientHeight);
+    barChart.invertOrientation(false);
+
+    barCharts.push(barChart);
+
+    container.datum(d).call(barChart);
+  });
+
+  function updateDims () {
+    panels.selectAll('svg').remove();
+    panels.each(function(d, i) {
+      var barChart = barCharts[i];
+      var container = d3.select(this);
+      barChart.width(this.clientWidth);
+      barChart.height(this.clientHeight);
+
+      container.call(barChart);
+    });
+  }
+
+  // debounce http://stackoverflow.com/a/5490021
+  var doit;
+  window.onresize = function(){
+    clearTimeout(doit);
+    doit = setTimeout(updateDims, 100);
+  };
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+html, body {
+  height: 100%;
+  background: #c6dbef;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header, .row {
+  margin: 0.5em 1em;
+}
+
+.header {
+  flex: 0 0 100px;
+  margin-top: 1em;
+  background: #fff;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  background: #c6dbef;
+}
+
+.row:last-child {
+  margin-bottom: 1em;
+}
+
+.panel {
+  background: #fff;
+  flex: 1;
+  margin: 0 0.5em;
+}
+
+.panel:first-child {
+  margin-left: 0;
+}
+
+.panel:last-child {
+  margin-right: 0;
+}

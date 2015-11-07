@@ -1,0 +1,47 @@
+.bar {
+  fill: #335078;
+  opacity: 0.9;
+}
+
+.nc-bar-g-0 .bar {
+  fill: #7fc97f;
+}
+
+.nc-bar-g-1 .bar {
+  fill: #beaed4;
+}
+
+.nc-bar-g-2 .bar {
+  fill: #fdc086;
+}
+
+.bar-back {
+  fill: purple;
+}
+
+.bar.negative {
+  fill: darkred;
+}
+
+.bar:hover {
+  opacity: 1;
+}
+
+.bar.active {
+  opacity: 1;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
